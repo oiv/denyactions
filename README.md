@@ -1,0 +1,2 @@
+# denyactions
+Dokuwiki plugin denyactions
