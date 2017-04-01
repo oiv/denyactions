@@ -16,29 +16,26 @@ class action_plugin_denyactions_rev extends DokuWiki_Action_Plugin {
 
     function handle_start(&$event, $param) {
         global $INFO;
-   	    global $lang;
+        global $lang;
         $pif=pageinfo();
 
         $style=$this->getConf('denystyle');
         $drev=$this->getConf('denyrev');
-        if ($drev && $pif['rev'] !== 0) {
-          if ($style==='login') {
-            global $ACT;
-            $ACT = 'denied';
-          } else {
-            if ($style==='msg') {
-              $this->setupLocale();
-              msg($this->lang['actiondenied'],-1);
+        $perm = auth_quickaclcheck($ID);
+        if($perm < AUTH_EDIT){
+          if ($drev && $pif['rev'] !== 0) {
+            if ($style==='login') {
+              global $ACT;
+              $ACT = 'denied';
+            } else {
+              if ($style==='msg') {
+                $this->setupLocale();
+                msg($this->lang['actiondenied'],-1);
+              }
+              $event->preventDefault();
+              $event->stopPropagation();
             }
-            $event->preventDefault();
-            $event->stopPropagation();
           }
-
-
         }
-
-
     }
-
-
 }
