@@ -23,7 +23,7 @@ class action_plugin_denyactions_act extends DokuWiki_Action_Plugin {
    
     }
 
-    public function handle_action_act_preprocess(Doku_Event &$event, $param) {
+    public function handle_action_act_preprocess(Doku_Event $event, $param) {
       global $ID;
 	    global $lang;
 	    $todeny=$this->getConf('denyactions');
