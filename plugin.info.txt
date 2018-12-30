@@ -1,7 +1,7 @@
 base   denyactions
 author Otto Vainio
 email  otto@valjakko.net
-date   2017-03-31
+date   2018-12-30
 name   denyactions plugin
 desc   Prevent actions
 url    https://www.dokuwiki.org/plugin:denyactions
