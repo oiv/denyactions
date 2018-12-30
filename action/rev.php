@@ -14,7 +14,7 @@ class action_plugin_denyactions_rev extends DokuWiki_Action_Plugin {
         $controller->register_hook('TPL_ACT_RENDER', 'BEFORE', $this, 'handle_start', array());
     }
 
-    function handle_start(&$event, $param) {
+    function handle_start(Doku_Event $event, $param) {
         global $INFO;
         global $lang;
         $pif=pageinfo();
