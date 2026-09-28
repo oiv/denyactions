@@ -17,6 +17,7 @@ class action_plugin_denyactions_rev extends DokuWiki_Action_Plugin {
     function handle_start(Doku_Event $event, $param) {
         global $INFO;
         global $lang;
+        global $ID;
         $pif=pageinfo();
 
         $style=$this->getConf('denystyle');
